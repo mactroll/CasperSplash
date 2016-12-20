@@ -40,6 +40,19 @@ class Software: NSObject {
     dynamic var canContinue: Bool
     dynamic var displayToUser: Bool
     
+    dynamic var statusIcon: NSImage? {
+        switch self.status {
+            case .failed:
+                return NSImage(named: "NSStatusUnavailable")
+            case .installing:
+                return NSImage(named: "NSStatusPartiallyAvailable")
+            case .pending:
+                return NSImage(named: "NSStatusNone")
+            case .success:
+                return NSImage(named: "NSStatusAvailable")
+            }
+    }
+    
     dynamic var packageInfo: String {
         return "\(self.packageName) (\(self.packageVersion))"
     }
@@ -144,12 +157,13 @@ func modifySoftwareArray(fromSoftware software: Software, softwareArray: inout [
 func getSoftwareFromRegex(_ line: String) -> Software? {
     for (status, regex) in initRegex() {
         
-        let matches = regex!.matches(in: line, options: [], range: NSMakeRange(0, line.characters.count))
-        
-        if !matches.isEmpty {
-            let name = (line as NSString).substring(with: matches[0].rangeAt(1))
-            let version = (line as NSString).substring(with: matches[0].rangeAt(2))
-            return Software(name: name, version: version, status: status)
+        if let matches = regex?.matches(in: line, options: [], range: NSMakeRange(0, line.characters.count)) {
+            
+            if !matches.isEmpty {
+                let name = (line as NSString).substring(with: matches[0].rangeAt(1))
+                let version = (line as NSString).substring(with: matches[0].rangeAt(2))
+                return Software(name: name, version: version, status: status)
+            }
         }
     }
     return nil

@@ -22,6 +22,8 @@ class CasperSplashController: NSWindowController {
         self.window?.level = Int(CGWindowLevelForKey(.maximumWindow))
         #endif
         
+        //self.window?.center()
+        
         self.window?.isOpaque = false
         self.window?.backgroundColor = NSColor.clear
     }

@@ -24,7 +24,6 @@
 		089D29531D51D50700E58C6D /* jamf_1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 089D29521D51D50700E58C6D /* jamf_1.txt */; };
 		08AC4F7D1D5222BD00CAB019 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC4F7C1D5222BD00CAB019 /* Preferences.swift */; };
 		08DAA4901D54A67A0027E650 /* CasperSplashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089D293B1D50D12200E58C6D /* CasperSplashUITests.swift */; };
-		08DAA4951D54D5430027E650 /* SoftwareStatusValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DAA4941D54D5430027E650 /* SoftwareStatusValueTransformer.swift */; };
 		08EC78811DE71DD5007960A4 /* CasperSplashController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08EC78801DE71DD5007960A4 /* CasperSplashController.storyboard */; };
 		08EC78AA1DE7210E007960A4 /* CasperSplashBackgroundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC78A91DE7210E007960A4 /* CasperSplashBackgroundController.swift */; };
 		08EC78AC1DE72326007960A4 /* CasperSplashMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC78AB1DE72326007960A4 /* CasperSplashMainViewController.swift */; };
@@ -89,7 +88,6 @@
 		08AC4F771D520A3200CAB019 /* ec_32x32@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ec_32x32@2x.png"; sourceTree = "<group>"; };
 		08AC4F7C1D5222BD00CAB019 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = CasperSplash/Preferences.swift; sourceTree = SOURCE_ROOT; };
 		08DAA4861D54A62B0027E650 /* CasperSplashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CasperSplashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		08DAA4941D54D5430027E650 /* SoftwareStatusValueTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareStatusValueTransformer.swift; sourceTree = "<group>"; };
 		08EC78801DE71DD5007960A4 /* CasperSplashController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CasperSplashController.storyboard; sourceTree = "<group>"; };
 		08EC78A91DE7210E007960A4 /* CasperSplashBackgroundController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CasperSplashBackgroundController.swift; sourceTree = "<group>"; };
 		08EC78AB1DE72326007960A4 /* CasperSplashMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CasperSplashMainViewController.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 				08AC4F7C1D5222BD00CAB019 /* Preferences.swift */,
 				086F87B11D536F2B002AA791 /* Script.swift */,
 				08EC78801DE71DD5007960A4 /* CasperSplashController.storyboard */,
-				08DAA4941D54D5430027E650 /* SoftwareStatusValueTransformer.swift */,
 				086F87BA1D5397AE002AA791 /* CasperSplashWebView.swift */,
 			);
 			path = CasperSplash;
@@ -273,12 +270,12 @@
 					};
 					089D292B1D50D12200E58C6D = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 						TestTargetID = 089D291C1D50D12200E58C6D;
 					};
 					08DAA4851D54A62B0027E650 = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 						TestTargetID = 089D291C1D50D12200E58C6D;
 					};
 				};
@@ -348,7 +345,6 @@
 				086F87BB1D5397AE002AA791 /* CasperSplashWebView.swift in Sources */,
 				08EC78AC1DE72326007960A4 /* CasperSplashMainViewController.swift in Sources */,
 				086F87B21D536F2B002AA791 /* Script.swift in Sources */,
-				08DAA4951D54D5430027E650 /* SoftwareStatusValueTransformer.swift in Sources */,
 				089D294D1D50F04900E58C6D /* Regexes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +501,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = EM3ER8T33A;
+				ENABLE_TESTABILITY = NO;
 				INFOPLIST_FILE = CasperSplash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.fti.CasperSplash;

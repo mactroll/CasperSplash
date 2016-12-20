@@ -9,17 +9,19 @@
 import Cocoa
 
 class CasperSplashBackgroundController: NSWindowController {
-
+    
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        if let backgroundWindow = self.window {
-            let mainDisplayRect = NSScreen.main()?.frame
-            backgroundWindow.contentRect(forFrameRect: mainDisplayRect!)
-            backgroundWindow.setFrame((NSScreen.main()?.frame)!, display: true)
-            backgroundWindow.setFrameOrigin((NSScreen.main()?.frame.origin)!)
+        if let backgroundWindow = self.window, let screenMain = NSScreen.main() {
+            
+            backgroundWindow.contentRect(forFrameRect: screenMain.frame)
+            backgroundWindow.setFrame(screenMain.frame, display: true)
+            backgroundWindow.setFrameOrigin(screenMain.frame.origin)
             backgroundWindow.level = Int(CGWindowLevelForKey(.maximumWindow) - 1 )
+            
+            
         }
     }
-
+    
 }
