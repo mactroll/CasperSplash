@@ -18,6 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, StreamDelegate {
     var casperSplashController: CasperSplashController!
     var casperSplashBackgroundController: CasperSplashBackgroundController!
     
+    @IBOutlet weak var quitMenu: NSMenuItem!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
@@ -31,15 +32,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, StreamDelegate {
         let storyboard = NSStoryboard(name: "CasperSplashController", bundle: nil)
         casperSplashController = storyboard.instantiateController(withIdentifier: "mainWindow") as! CasperSplashController
         casperSplashController.showWindow(self)
-        
+
         // Create background controller
         #if !DEBUG
              casperSplashBackgroundController = storyboard.instantiateController(withIdentifier: "backgroundWindow") as! CasperSplashBackgroundController
             casperSplashBackgroundController.showWindow(self)
         #endif
 
+    }
 
-
+    func applicationDidBecomeActive(_ notification: Notification) {
+        if let quitCommand = Preferences.sharedInstance.userDefaults?.string(forKey: PrefKeys.quitCommand) {
+            quitMenu.keyEquivalentModifierMask = NSCommandKeyMask
+            quitMenu.keyEquivalent = quitCommand
+        }
     }
 
  }

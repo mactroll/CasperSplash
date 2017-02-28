@@ -13,6 +13,10 @@ import Cocoa
 /**
  Preferences() keeps the relevant preferences
  */
+
+enum PrefKeys {
+static let quitCommand = "QuitCommand"
+}
 class Preferences {
     
     static let sharedInstance = Preferences()
@@ -35,6 +39,7 @@ class Preferences {
     init(nsUserDefaults: UserDefaults? = UserDefaults.standard) {
         
         self.userDefaults = nsUserDefaults
+        self.userDefaults?.set(true, forKey: "test")
         
         if let assetPath = getPreferencesAssetPath() {
             self.assetPath = assetPath
