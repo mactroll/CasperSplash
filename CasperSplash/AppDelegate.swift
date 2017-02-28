@@ -43,6 +43,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, StreamDelegate {
 
     func applicationDidBecomeActive(_ notification: Notification) {
         if let quitCommand = Preferences.sharedInstance.userDefaults?.string(forKey: PrefKeys.quitCommand) {
+            if quitCommand.characters.count > 1 {
+                NSLog("Too many characters in the quit command.")
+                return
+            }
             quitMenu.keyEquivalentModifierMask = NSCommandKeyMask
             quitMenu.keyEquivalent = quitCommand
         }
